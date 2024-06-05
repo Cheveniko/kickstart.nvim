@@ -53,6 +53,8 @@ vim.keymap.set('n', '<C-t>', function()
   vim.cmd.terminal()
 end)
 
--- Nvim tree
---local nvimtree = require 'nvim-tree.api'
---vim.keymap.set('n', '<C-f>', nvimtree.tree.open)
+-- Fugitive
+vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
+
+-- Jump to previous file
+vim.keymap.set('n', '<C-g>', '<C-^>')

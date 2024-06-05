@@ -178,6 +178,7 @@ require('lazy').setup({
         delete = { text = '_' },
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
+        untracked = { text = '┆' },
       },
     },
   },
@@ -424,8 +425,9 @@ require('lazy').setup({
           map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
           -- Opens a popup that displays documentation about the word under your cursor
-          --  See `:help K` for why this keymap.
-          map('K', vim.lsp.buf.hover, 'Hover Documentation')
+          --  See `:help k` for why this keymap.
+          -- map('K', vim.lsp.buf.hover, 'Hover Documentation')
+          map('gh', vim.lsp.buf.hover, 'Hover Documentation')
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
@@ -759,7 +761,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'javascript', 'typescript' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -788,6 +790,14 @@ require('lazy').setup({
     end,
   },
 
+  { -- treesitter context
+    'nvim-treesitter/nvim-treesitter-context',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require('treesitter-context').setup()
+    end,
+  },
+
   { -- icons for nvim tree
     'nvim-tree/nvim-web-devicons',
   },
@@ -806,6 +816,16 @@ require('lazy').setup({
         },
       }
     end,
+  },
+
+  { -- tailwind tools
+    'luckasRanarison/tailwind-tools.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    opts = {}, -- your configuration
+  },
+
+  { -- vim fugitive
+    'tpope/vim-fugitive',
   },
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
