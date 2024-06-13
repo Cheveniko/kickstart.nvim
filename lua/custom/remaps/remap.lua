@@ -58,3 +58,12 @@ vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
 
 -- Jump to previous file
 vim.keymap.set('n', '<C-g>', '<C-^>')
+
+-- Move tabs position
+vim.keymap.set('n', '<leader><Left>', '<cmd>tabm -1<CR>')
+vim.keymap.set('n', '<leader><Right>', '<cmd>tabm +1<CR>')
+
+-- Disable default vim mappings
+vim.keymap.set('n', 'L', '<Nop>')
+vim.keymap.set('n', 'H', '<Nop>')
+vim.keymap.set('n', 'M', '<Nop>')
