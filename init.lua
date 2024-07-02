@@ -262,8 +262,15 @@ require('lazy').setup({
       },
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
+      -- Material Icons
+      { 'DaikyXendo/nvim-material-icon' },
+
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      {
+        'nvim-tree/nvim-web-devicons',
+        enabled = vim.g.have_nerd_font,
+        dependencies = { 'DaikyXendo/nvim-material-icon' },
+      },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -603,19 +610,21 @@ require('lazy').setup({
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        css = { { 'prettierd' } },
-        graphql = { { 'prettierd' } },
-        html = { { 'prettierd' } },
-        javascript = { { 'prettierd' } },
-        javascriptreact = { { 'prettierd' } },
-        json = { { 'prettierd' } },
-        markdown = { { 'prettierd' } },
+        astro = { { 'prettier', 'prettierd' } },
+        css = { { 'prettierd', 'prettier' } },
+        graphql = { { 'prettierd', 'prettier' } },
+        html = { { 'prettierd', 'prettier' } },
+        javascript = { { 'prettierd', 'prettier' } },
+        javascriptreact = { { 'prettierd', 'prettier' } },
+        json = { { 'prettierd', 'prettier' } },
+        jsonc = { { 'prettierd', 'prettier' } },
+        markdown = { { 'prettierd', 'prettier' } },
         python = { 'black' },
         sql = { 'sql-formatter' },
-        svelte = { { 'prettierd' } },
-        typescript = { { 'prettierd' } },
-        typescriptreact = { { 'prettierd' } },
-        yaml = { 'prettierd' },
+        svelte = { { 'prettierd', 'prettier' } },
+        typescript = { { 'prettierd', 'prettier' } },
+        typescriptreact = { { 'prettierd', 'prettier' } },
+        yaml = { 'prettierd', 'prettier' },
       },
     },
   },
@@ -687,11 +696,11 @@ require('lazy').setup({
           -- Accept ([y]es) the completion.
           --  This will auto-import if your LSP supports it.
           --  This will expand snippets if the LSP sent a snippet.
-          ['<C-y>'] = cmp.mapping.confirm { select = true },
+          -- ['<C-y>'] = cmp.mapping.confirm { select = true },
 
           -- If you prefer more traditional completion keymaps,
           -- you can uncomment the following lines
-          -- ['<Tab>'] = cmp.mapping.confirm { select = true },
+          ['<Tab>'] = cmp.mapping.confirm { select = true },
           --['<Tab>'] = cmp.mapping.select_next_item(),
           --['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
@@ -831,10 +840,6 @@ require('lazy').setup({
     end,
   },
 
-  { -- icons for nvim tree
-    'nvim-tree/nvim-web-devicons',
-  },
-
   { -- nvim tree
     'nvim-tree/nvim-tree.lua',
     version = '*',
@@ -876,6 +881,10 @@ require('lazy').setup({
 
   { --Github Copilot
     'github/copilot.vim',
+  },
+
+  { --Undo tree
+    'mbbill/undotree',
   },
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the

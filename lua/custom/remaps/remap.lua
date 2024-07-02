@@ -67,3 +67,6 @@ vim.keymap.set('n', '<leader><Right>', '<cmd>tabm +1<CR>')
 vim.keymap.set('n', 'L', '<Nop>')
 vim.keymap.set('n', 'H', '<Nop>')
 vim.keymap.set('n', 'M', '<Nop>')
+
+-- Undo tree
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
