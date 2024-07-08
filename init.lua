@@ -875,16 +875,23 @@ require('lazy').setup({
     end,
   },
 
-  { -- better comments
-    'Djancyp/better-comments.nvim',
-  },
-
   { --Github Copilot
     'github/copilot.vim',
   },
 
   { --Undo tree
     'mbbill/undotree',
+  },
+
+  { --File operations
+    'antosha417/nvim-lsp-file-operations',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-tree.lua',
+    },
+    config = function()
+      require('lsp-file-operations').setup()
+    end,
   },
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
