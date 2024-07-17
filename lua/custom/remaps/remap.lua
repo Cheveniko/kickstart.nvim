@@ -70,3 +70,6 @@ vim.keymap.set('n', 'M', '<Nop>')
 
 -- Undo tree
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+
+-- Markdown Preview
+vim.keymap.set('n', '<leader>mp', vim.cmd.MarkdownPreview)
