@@ -73,3 +73,6 @@ vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 
 -- Markdown Preview
 vim.keymap.set('n', '<leader>mp', vim.cmd.MarkdownPreview)
+
+-- Fill telescope with last query
+vim.keymap.set('n', '<leader>sl', '<cmd>Telescope resume<CR>', { desc = '[S]earch [L]ast query' })
