@@ -69,10 +69,7 @@ vim.keymap.set('n', 'H', '<Nop>')
 vim.keymap.set('n', 'M', '<Nop>')
 
 -- Undo tree
-vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = '[u]ndo tree' })
 
 -- Markdown Preview
-vim.keymap.set('n', '<leader>mp', vim.cmd.MarkdownPreview)
-
--- Fill telescope with last query
-vim.keymap.set('n', '<leader>sl', '<cmd>Telescope resume<CR>', { desc = '[S]earch [L]ast query' })
+vim.keymap.set('n', '<leader>mp', vim.cmd.MarkdownPreview, { desc = '[M]arkdown [P]review' })

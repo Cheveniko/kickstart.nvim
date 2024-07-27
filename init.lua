@@ -922,6 +922,7 @@ require('lazy').setup({
     end,
   },
 
+  --Status line
   {
     'arsham/arshamiser.nvim',
     dependencies = {
